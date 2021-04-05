@@ -12,7 +12,7 @@ import configparser
 DEFAULT_RELEASE="5.5.0"
 
 TEMPLATES_DIR = "templates"
-BROKER_TEMPLATE = os.path.join(TEMPLATES_DIR, "kafka.template")
+BROKER_TEMPLATE = os.path.join(TEMPLATES_DIR, "kafka-secure.template")
 ZOOKEEPER_TEMPLATE = os.path.join(TEMPLATES_DIR, "zookeeper.template")
 SCHEMA_REGISTRY_TEMPLATE = os.path.join(TEMPLATES_DIR, "schema-registry.template")
 PROMETHEUS_TEMPLATE = os.path.join(TEMPLATES_DIR, "prometheus.template")
