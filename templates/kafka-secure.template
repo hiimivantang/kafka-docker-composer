@@ -4,7 +4,6 @@
   container_name: {{broker-name}}
   depends_on:
     {{zookeeper-containers}}
-    {{vault-container}}
   environment:
     KAFKA_BROKER_ID: {{broker-id}}
     KAFKA_ZOOKEEPER_CONNECT: {{zookeeper-ports}}
