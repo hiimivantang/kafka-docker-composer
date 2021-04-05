@@ -8,7 +8,7 @@
     KAFKA_BROKER_ID: {{broker-id}}
     KAFKA_ZOOKEEPER_CONNECT: {{zookeeper-ports}}
     KAFKA_LISTENERS: PLAINTEXT://{{broker-port-internal}}, EXTERNAL://{{broker-port-external}}
-    KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:{{broker-internal-protocol}},EXTERNAL:{{broker-external-protocol}}
+    KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:{{broker-internal-protocol}},EXTERNAL:SSL
     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://{{broker-advertised-port-internal}}, EXTERNAL://{{broker-advertised-port-external}}
     KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
     KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
@@ -18,7 +18,12 @@
     KAFKA_OPTS: "-javaagent:/tmp/jmx_prometheus_javaagent-0.12.1.jar=8091:/tmp/kafka_config.yml"
     KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
     KAFKA_SSL_TRUSTSTORE_LOCATION: /var/ssl/private/kafka-truststore.jks
-    KAFKA_SSL_KEYSTORE_LOCATION: /var/ss/private/{{broker-name}}-keystore.jks
+    KAFKA_SSL_TRUSTSTORE_PASSWORD: changeme
+    KAFKA_SSL_KEYSTORE_LOCATION: /var/ssl/private/{{broker-name}}-keystore.jks
+    KAFKA_SSL_KEYSTORE_PASSWORD: changeme
+    KAFKA_SSL_KEY_PASSWORD: changeme
+    KAFKA_SSL_CLIENT_AUTH: required
+    KAFKA_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: HTTPS
     CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: {{broker-port-internal}}
     CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
     CONFLUENT_METRICS_ENABLE: 'true'
